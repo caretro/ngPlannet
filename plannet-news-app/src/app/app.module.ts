@@ -10,7 +10,7 @@ import { NewsComponent } from './pages/news/news.component';
   declarations: [
     AppComponent,
     HomeComponent,
-    NewsComponent
+    NewsComponent,
   ],
   imports: [
     BrowserModule,
