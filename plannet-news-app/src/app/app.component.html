@@ -1,4 +1,7 @@
-<h1>PLANNET NEWS APP</h1>
+<h1>{{ title }}</h1>
 
-<app-home></app-home>
-<!-- <app-news></app-news> -->
+<app-menu (onMenuClick)="activePage = $event"></app-menu>
+
+<app-home [hidden]="activePage != 'home'"></app-home>
+<app-news [hidden]="activePage != 'news'"></app-news>
+<app-admin [hidden]="activePage != 'admin'"></app-admin>

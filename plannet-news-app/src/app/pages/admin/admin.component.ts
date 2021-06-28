@@ -3,14 +3,14 @@ import { NEWS } from 'src/app/assets/news-data';
 import { News } from 'src/app/models/news';
 
 @Component({
-  selector: 'app-news',
-  templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css']
+  selector: 'app-admin',
+  templateUrl: './admin.component.html',
+  styleUrls: ['./admin.component.css']
 })
-export class NewsComponent implements OnInit {
+export class AdminComponent implements OnInit {
   
-  public news: News[] = NEWS;
-  
+  news: News = NEWS[0];
+
   constructor() { }
 
   ngOnInit(): void {
