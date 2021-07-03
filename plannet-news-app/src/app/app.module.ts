@@ -7,6 +7,7 @@ import { ComponentsModule } from "./components/components.module";
 import { AdminComponent } from "./pages/admin/admin.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { NewsComponent } from "./pages/news/news.component";
+import { AppService } from "./services/app.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { NewsComponent } from "./pages/news/news.component";
     ComponentsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

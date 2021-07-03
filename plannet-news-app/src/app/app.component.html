@@ -2,6 +2,6 @@
 
 <app-menu (onMenuClick)="activePage = $event"></app-menu>
 
-<app-home *ngIf="activePage === 'home'"></app-home>
-<app-news *ngIf="activePage === 'news'"></app-news>
-<app-admin *ngIf="activePage === 'admin'" [(title)]="title"></app-admin>
+<app-home *ngIf="appService.activePage === 'home'"></app-home>
+<app-news *ngIf="appService.activePage === 'news'"></app-news>
+<app-admin *ngIf="appService.activePage === 'admin'" [(title)]="title"></app-admin>
