@@ -3,4 +3,5 @@ export class News {
     description: string;
     publishDate: Date;
     important: boolean;
+    author?: string;
 }
