@@ -7,8 +7,16 @@
   <button (click)="titleChange.emit(title)">Aggiorna il titolo</button>
 </div>
 <br><br>
-<div>
-  <label>Titolo</label>
-  <input type="text" [(ngModel)]="news.title">
-  <p>Il titolo della nuova news è {{ news.title }}</p>
-</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Titolo</label>
+    <input type="text" formControlName="title" />
+    <span> Titolo {{ form.controls['title'].value }}</span>
+  </div>
+  <div>
+    <label>Descrizione</label>
+    <input type="text" formControlName="description" />
+    <span> Descrizione {{ form.get('description')?.value }}</span>
+  </div>
+  <button type="submit">Salva</button>
+</form>
