@@ -2,4 +2,6 @@
 
 <p>{{news?.description}}</p>
 
-<small>{{news?.publishDate}}</small>
+<small>{{news?.publishDate | date:'EEEE dd/MM/yyyy' | uppercase}}</small>
+
+<blockquote>Autore: {{news?.author | nullable:'Anonimo'}}</blockquote>
