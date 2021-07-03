@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NEWS } from 'src/app/assets/news-data';
 import { News } from 'src/app/models/news';
 
@@ -9,6 +9,9 @@ import { News } from 'src/app/models/news';
 })
 export class AdminComponent implements OnInit {
   
+  @Input() title: string;
+  @Output() titleChange = new EventEmitter<string>();
+
   news: News = NEWS[0];
 
   constructor() { }
