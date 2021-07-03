@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NewsWidgetComponent } from './news-widget/news-widget.component';
 import { MenuComponent } from './menu/menu.component';
 import { NullablePipe } from '../pipes/nullable.pipe';
+import { HighlightDirective } from '../directives/highlight.directive';
 
 
 
@@ -10,7 +11,8 @@ import { NullablePipe } from '../pipes/nullable.pipe';
   declarations: [
     NewsWidgetComponent,
     MenuComponent,
-    NullablePipe
+    NullablePipe,
+    HighlightDirective
   ],
   imports: [
     CommonModule

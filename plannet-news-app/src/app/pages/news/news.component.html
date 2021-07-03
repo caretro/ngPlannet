@@ -1,4 +1,7 @@
 <h2>Archivio news</h2>
 
-<app-news-widget [news]="news[0]"></app-news-widget>
-<app-news-widget [news]="news[1]"></app-news-widget>
+<app-news-widget *ngFor="let n of news; let i=index; let odd=odd;"
+    [news]="n"
+    [attr.data-index]="i"
+    [ngClass]="{'odd': odd, 'even': !odd}">
+</app-news-widget>
