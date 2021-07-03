@@ -12,11 +12,14 @@
     <label>Titolo</label>
     <input type="text" formControlName="title" />
     <span> Titolo {{ form.controls['title'].value }}</span>
+    <div *ngIf="form.get('title')?.errors?.required && form.get('title')?.touched">Titolo obbligatorio</div>
+    <div *ngIf="form.get('title')?.errors?.maxlength && form.get('title')?.touched">Titolo troppo lungo</div>
   </div>
   <div>
     <label>Descrizione</label>
     <input type="text" formControlName="description" />
     <span> Descrizione {{ form.get('description')?.value }}</span>
+    <div *ngIf="form.get('description')?.errors?.required && form.get('description')?.dirty">Descrizione obbligatoria</div>
   </div>
-  <button type="submit">Salva</button>
+  <button type="submit" [disabled]="form.invalid">Salva</button>
 </form>
