@@ -2,5 +2,6 @@
 
 <app-news-widget *ngFor="let n of news; let i=index; let odd=odd;"
     [news]="n"
-    [attr.data-index]="i">
+    [attr.data-index]="i"
+    [ngClass]="{'odd': odd, 'even': !odd}">
 </app-news-widget>
