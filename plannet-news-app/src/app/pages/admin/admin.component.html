@@ -1,5 +1,14 @@
+<h2>Admin</h2>
+
 <div>
-    <label>Titolo</label>
-    <input type="text" [(ngModel)]="news.title">
-    <p>Il titolo della nuova news è {{ news.title }}</p>
-  </div>
+  <label>Titolo della pagina</label>
+  <input type="text" [(ngModel)]="title">
+  <p>Il nuovo titolo della pagine è {{ title }}</p>
+  <button (click)="titleChange.emit(title)">Aggiorna il titolo</button>
+</div>
+<br><br>
+<div>
+  <label>Titolo</label>
+  <input type="text" [(ngModel)]="news.title">
+  <p>Il titolo della nuova news è {{ news.title }}</p>
+</div>
