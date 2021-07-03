@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NEWS } from 'src/app/assets/news-data';
 import { News } from 'src/app/models/news';
+import { CustomValidators } from 'src/app/validation/custom-validators';
 
 @Component({
   selector: 'app-admin',
@@ -21,7 +22,7 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl("", [Validators.required, Validators.maxLength(10)]),
-      description: new FormControl("", [Validators.required])
+      description: new FormControl("", [Validators.required, CustomValidators.regexValidator(/basket/i)])
     });    
   }
   

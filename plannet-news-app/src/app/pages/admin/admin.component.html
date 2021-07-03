@@ -20,6 +20,7 @@
     <input type="text" formControlName="description" />
     <span> Descrizione {{ form.get('description')?.value }}</span>
     <div *ngIf="form.get('description')?.errors?.required && form.get('description')?.dirty">Descrizione obbligatoria</div>
+    <div *ngIf="form.get('description')?.errors?.forbidden && form.get('description')?.dirty">Non puoi scrivere {{form.get('description')?.errors?.forbidden.value}}!</div>
   </div>
   <button type="submit" [disabled]="form.invalid">Salva</button>
 </form>
