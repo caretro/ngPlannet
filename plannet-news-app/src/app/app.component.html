@@ -1,4 +1,6 @@
 <h1>{{ title }}</h1>
+<!-- <p>Bentornato {{ user }}</p> -->
+<p>Bentornato {{ (profileService.profile$ | async )?.user }}</p>
 
 <app-menu (onMenuClick)="activePage = $event"></app-menu>
 

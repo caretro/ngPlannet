@@ -1,3 +1,4 @@
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
@@ -8,6 +9,7 @@ import { AdminComponent } from "./pages/admin/admin.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { NewsComponent } from "./pages/news/news.component";
 import { AppService } from "./services/app.service";
+import { ProfileService } from "./services/profile.service";
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { AppService } from "./services/app.service";
     BrowserModule,
     FormsModule,
     ComponentsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [AppService],
+  providers: [AppService, ProfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
