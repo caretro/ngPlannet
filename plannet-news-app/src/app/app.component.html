@@ -4,6 +4,11 @@
 
 <app-menu (onMenuClick)="activePage = $event"></app-menu>
 
+<router-outlet></router-outlet>
+<!-- 
 <app-home *ngIf="appService.activePage === 'home'"></app-home>
 <app-news *ngIf="appService.activePage === 'news'"></app-news>
-<app-admin *ngIf="appService.activePage === 'admin'" [(title)]="title"></app-admin>
+<app-admin *ngIf="appService.activePage === 'admin'" [(title)]="title"></app-admin> -->
+
+<br><br><br><br><br><br>
+<footer>Torna alla <a routerLink="/home" routerLinkActive="home-active">Home</a></footer>
