@@ -6,6 +6,8 @@ import { RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { ComponentsModule } from "./components/components.module";
+import { AuthGuard } from "./guards/auth.guard";
+import { ConfirmUpdateGuard } from "./guards/confirm-update.guard";
 import { AdminComponent } from "./pages/admin/admin.component";
 import { HomeComponent } from "./pages/home/home.component";
 import { NewsComponent } from "./pages/news/news.component";
@@ -15,7 +17,7 @@ import { ProfileService } from "./services/profile.service";
 const routes: Routes = [
   { path: "home", component: HomeComponent },
   { path: "news", component: NewsComponent },
-  { path: "admin", component: AdminComponent },
+  { path: "admin", component: AdminComponent, canActivate: [AuthGuard], canDeactivate: [ConfirmUpdateGuard] },
   { path: "", redirectTo: "home", pathMatch: "full"},
   { path: "**", redirectTo: "home" }
 ];
@@ -35,7 +37,7 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AppService, ProfileService],
+  providers: [AppService, ProfileService, AuthGuard, ConfirmUpdateGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

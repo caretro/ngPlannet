@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Profile } from "../models/profile";
-import { Subject } from "rxjs";
+import { BehaviorSubject } from "rxjs";
 
 @Injectable()
 export class ProfileService {
 
-    public profile$: Subject<Profile> = new Subject();
+    public profile$: BehaviorSubject<Profile> = new BehaviorSubject({ role: '', user: '' });
 
     constructor(
         private http: HttpClient
