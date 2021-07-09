@@ -4,4 +4,10 @@ export class News {
     publishDate: Date;
     important: boolean;
     author?: string;
+    // category: KeyText
+}
+
+export class KeyText {
+    key: string;
+    text: string;
 }

@@ -1,35 +1,38 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { NEWS } from 'src/app/assets/news-data';
-import { News } from 'src/app/models/news';
-import { CustomValidators } from 'src/app/validation/custom-validators';
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { NEWS } from "src/app/assets/news-data";
+import { News } from "src/app/models/news";
 
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
-export class AdminComponent implements OnInit {
-  
+export class AdminComponent {
+
   @Input() title: string;
   @Output() titleChange = new EventEmitter<string>();
 
   news: News[] = NEWS;
-  form: FormGroup;
+  form: any;
 
-  constructor() { }
+  newNews: News = {
+    title: "",
+    description: "",
+    important: false,
+    publishDate: new Date(),
+    author: "",
+    // category: 
+  };
 
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      title: new FormControl("", [Validators.required, Validators.maxLength(10)]),
-      description: new FormControl("", [Validators.required, CustomValidators.regexValidator(/basket/i)])
-    });    
+  publishDateOptions = { disabled: true };
+
+  submitButtonOptions = {
+    text: "Salva",
+    useSubmitBehavior: true
   }
-  
-  onSubmit() {
-    this.news.unshift(this.form.value as News);
-    alert('Inserita news ' + this.form.get("title")?.value);
-    this.form.reset();
-  }
 
+  onSubmit(e: any) {
+    e.preventDefault();
+    this.news.unshift(this.newNews as News);
+  }
 }

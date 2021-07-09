@@ -10,7 +10,7 @@ export class ConfirmUpdateGuard implements CanDeactivate<AdminComponent> {
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (component.form.dirty) {
+    if (component.form && component.form.dirty) {
       let confirm = window.confirm("Non hai salvato. Sei sicuro?");
       return of(confirm);
     } else {
