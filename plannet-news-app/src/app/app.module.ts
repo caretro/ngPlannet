@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule, Routes } from "@angular/router";
 import { DxButtonModule } from "devextreme-angular/ui/button";
+import { DxDataGridModule } from "devextreme-angular/ui/data-grid";
 import { DxFormModule } from "devextreme-angular/ui/form";
 
 import { AppComponent } from "./app.component";
@@ -38,7 +39,8 @@ const routes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(routes),
     DxFormModule,
-    DxButtonModule
+    DxButtonModule,
+    DxDataGridModule
   ],
   providers: [AppService, ProfileService, AuthGuard, ConfirmUpdateGuard],
   bootstrap: [AppComponent]

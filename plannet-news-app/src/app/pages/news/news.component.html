@@ -1,7 +1,23 @@
 <h2>Archivio news</h2>
 
-<app-news-widget *ngFor="let n of news; let i=index; let odd=odd;"
-    [news]="n"
-    [attr.data-index]="i"
-    [ngClass]="{'odd': odd, 'even': !odd}">
-</app-news-widget>
+<dx-data-grid id="dataGrid"
+    [dataSource]="news"
+    [allowColumnReordering]="true">
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-search-panel [visible]="true"></dxo-search-panel>
+    <dxi-column dataField="title"
+        [fixed]="true">
+        <dxi-validation-rule type="stringLength" [max]="10" [min]="1" message="Massimo 10 caratteri">
+        </dxi-validation-rule>
+    </dxi-column>
+    <dxi-column dataField="description"></dxi-column>
+    <dxi-column dataField="important"></dxi-column>
+    <dxi-column dataField="publishDate" dataType="date"></dxi-column>
+    <dxi-column dataField="author"></dxi-column>
+    <dxo-editing
+        mode="row"
+        [allowUpdating]="true"
+        [allowDeleting]="true"
+        [allowAdding]="true">
+    </dxo-editing>
+</dx-data-grid>
