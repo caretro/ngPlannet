@@ -1,7 +1,23 @@
 <h2>Archivio news</h2>
 
-<app-news-widget *ngFor="let n of news; let i=index; let odd=odd;"
-    [news]="n"
-    [attr.data-index]="i"
-    [ngClass]="{'odd': odd, 'even': !odd}">
-</app-news-widget>
+<dx-data-grid id="dataGrid" [dataSource]="news" [allowColumnReordering]="true">
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-search-panel [visible]="true"></dxo-search-panel>
+
+    <ng-container *ngFor="let col of newsSchema">
+        <dxi-column [dataField]="col.key" [caption]="col.label">
+            <dxo-format *ngIf="col.format" [type]="col.format"></dxo-format>
+            <dxo-lookup *ngIf="col.lookupSource" [dataSource]="getLookup(col.lookupSource)" valueExpr="key" displayExpr="text">
+            </dxo-lookup>
+            <dxi-validation-rule *ngIf="col.required" type="required"></dxi-validation-rule>
+        </dxi-column>
+    </ng-container>
+
+    <dxo-editing mode="row" [allowUpdating]="true" [allowDeleting]="true" [allowAdding]="true">
+    </dxo-editing>
+
+    <dxo-paging 
+        [pageSize]="10"
+        [pageIndex]="0">
+    </dxo-paging>
+</dx-data-grid>

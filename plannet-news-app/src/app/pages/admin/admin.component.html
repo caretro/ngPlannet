@@ -7,20 +7,18 @@
   <button (click)="titleChange.emit(title)">Aggiorna il titolo</button>
 </div>
 <br><br>
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div>
-    <label>Titolo</label>
-    <input type="text" formControlName="title" />
-    <span> Titolo {{ form.controls['title'].value }}</span>
-    <div *ngIf="form.get('title')?.errors?.required && form.get('title')?.touched">Titolo obbligatorio</div>
-    <div *ngIf="form.get('title')?.errors?.maxlength && form.get('title')?.touched">Titolo troppo lungo</div>
-  </div>
-  <div>
-    <label>Descrizione</label>
-    <input type="text" formControlName="description" />
-    <span> Descrizione {{ form.get('description')?.value }}</span>
-    <div *ngIf="form.get('description')?.errors?.required && form.get('description')?.dirty">Descrizione obbligatoria</div>
-    <div *ngIf="form.get('description')?.errors?.forbidden && form.get('description')?.dirty">Non puoi scrivere {{form.get('description')?.errors?.forbidden.value}}!</div>
-  </div>
-  <button type="submit" [disabled]="form.invalid">Salva</button>
+<form action="" (submit)="onSubmit($event)">
+  <dx-form [formData]="newNews">
+    <dxi-item dataField="title" [isRequired]="true">
+      <dxo-label text="Titolo"></dxo-label>
+      <dxi-validation-rule type="stringLength" [max]="10" [min]="1" message="Massimo 10 caratteri">
+      </dxi-validation-rule>
+    </dxi-item>
+    <dxi-item dataField="description"></dxi-item>
+    <dxi-item dataField="important"></dxi-item>
+    <dxi-item dataField="publishDate" [editorOptions]="publishDateOptions"></dxi-item>
+    <dxi-item dataField="author"></dxi-item>
+    <dxi-item dataField="category" editorType="dxSelectBox" [editorOptions]="{items: categories, valueExpr: 'key', displayExpr:'text' }"></dxi-item>
+    <dxi-item itemType="button" [buttonOptions]="submitButtonOptions"></dxi-item>  
+  </dx-form>
 </form>

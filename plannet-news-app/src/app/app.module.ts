@@ -1,8 +1,11 @@
 import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouterModule, Routes } from "@angular/router";
+import { DxButtonModule } from "devextreme-angular/ui/button";
+import { DxDataGridModule } from "devextreme-angular/ui/data-grid";
+import { DxFormModule } from "devextreme-angular/ui/form";
 
 import { AppComponent } from "./app.component";
 import { ComponentsModule } from "./components/components.module";
@@ -33,9 +36,11 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     ComponentsModule,
-    ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    DxFormModule,
+    DxButtonModule,
+    DxDataGridModule
   ],
   providers: [AppService, ProfileService, AuthGuard, ConfirmUpdateGuard],
   bootstrap: [AppComponent]

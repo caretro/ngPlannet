@@ -4,3 +4,7 @@
 .even {
     color: green;
 }
+
+#dataGrid {
+    height: 500px;
+}
