@@ -18,6 +18,7 @@
     <dxi-item dataField="important"></dxi-item>
     <dxi-item dataField="publishDate" [editorOptions]="publishDateOptions"></dxi-item>
     <dxi-item dataField="author"></dxi-item>
+    <dxi-item dataField="category" editorType="dxSelectBox" [editorOptions]="{items: categories, valueExpr: 'key', displayExpr:'text' }"></dxi-item>
     <dxi-item itemType="button" [buttonOptions]="submitButtonOptions"></dxi-item>  
   </dx-form>
 </form>

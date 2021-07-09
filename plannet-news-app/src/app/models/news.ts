@@ -4,10 +4,20 @@ export class News {
     publishDate: Date;
     important: boolean;
     author?: string;
-    // category: KeyText
+    category?: string
 }
 
 export class KeyText {
     key: string;
     text: string;
+}
+
+export class NewsSchema {
+    key: string;
+    required: boolean;
+    label: string;
+    order: number;
+    type: string;
+    format?: string;
+    lookupSource?: string;
 }

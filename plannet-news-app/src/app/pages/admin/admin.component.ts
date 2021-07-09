@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { NEWS } from "src/app/assets/news-data";
-import { News } from "src/app/models/news";
+import { NEWS, NEWS_CATEGORIES } from "src/app/assets/news-data";
+import { KeyText, News } from "src/app/models/news";
 
 @Component({
   selector: 'app-admin',
@@ -20,8 +20,7 @@ export class AdminComponent {
     description: "",
     important: false,
     publishDate: new Date(),
-    author: "",
-    // category: 
+    author: ""
   };
 
   publishDateOptions = { disabled: true };
@@ -30,6 +29,8 @@ export class AdminComponent {
     text: "Salva",
     useSubmitBehavior: true
   }
+
+  categories: KeyText[] = NEWS_CATEGORIES;
 
   onSubmit(e: any) {
     e.preventDefault();
