@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NEWS, NEWS_CATEGORIES, NEWS_SCHEMA } from 'src/app/assets/news-data';
 import { News, NewsSchema } from 'src/app/models/news';
+import { PreloadService } from 'src/app/services/preload.service';
 
 @Component({
   selector: 'app-news',
@@ -19,7 +20,7 @@ export class NewsComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  constructor(private preloadService: PreloadService) { }
 
   ngOnInit(): void {
   }

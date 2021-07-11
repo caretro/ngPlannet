@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NEWS } from 'src/app/assets/news-data';
 import { News } from 'src/app/models/news';
+import { PreloadService } from 'src/app/services/preload.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ export class HomeComponent implements OnInit {
 
   public homeNews: News;
 
-  constructor() { }
+  constructor(private preloadService: PreloadService) { }
 
   ngOnInit(): void {
     this.homeNews = NEWS.filter((news) => news.important)[0];

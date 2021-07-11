@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { NEWS, NEWS_CATEGORIES } from "src/app/assets/news-data";
 import { KeyText, News } from "src/app/models/news";
+import { PreloadService } from "src/app/services/preload.service";
 
 @Component({
   selector: 'app-admin',
@@ -11,6 +12,8 @@ export class AdminComponent {
 
   @Input() title: string;
   @Output() titleChange = new EventEmitter<string>();
+
+  constructor(private preloadService: PreloadService) { }
 
   news: News[] = NEWS;
   form: any;
