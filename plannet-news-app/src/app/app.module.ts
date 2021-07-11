@@ -4,6 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from "./app.component";
+import { BannerModule } from "./components/banner/banner.module";
 import { ComponentsModule } from "./components/components.module";
 import { AppService } from "./services/app.service";
 import { PreloadService } from "./services/preload.service";
@@ -24,6 +25,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     ComponentsModule,
+    BannerModule,
     HttpClientModule,
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadService /*PreloadAllModules*/ })
   ],

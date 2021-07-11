@@ -4,6 +4,7 @@ import { NewsWidgetComponent } from './news-widget/news-widget.component';
 import { MenuComponent } from './menu/menu.component';
 import { NullablePipe } from '../pipes/nullable.pipe';
 import { HighlightDirective } from '../directives/highlight.directive';
+import { BannerModule } from './banner/banner.module';
 
 
 
@@ -15,11 +16,12 @@ import { HighlightDirective } from '../directives/highlight.directive';
     HighlightDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BannerModule
   ],
   exports: [
     NewsWidgetComponent,
-    MenuComponent
+    MenuComponent,
   ]
 })
 export class ComponentsModule { }

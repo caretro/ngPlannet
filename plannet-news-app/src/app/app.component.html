@@ -4,6 +4,8 @@
 
 <app-menu (onMenuClick)="activePage = $event"></app-menu>
 
+<app-banner [banners]="banners"></app-banner>
+
 <router-outlet></router-outlet>
 <!-- 
 <app-home *ngIf="appService.activePage === 'home'"></app-home>

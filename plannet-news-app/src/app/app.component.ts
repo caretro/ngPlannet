@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BannerItem } from './components/banner/banner';
+import { BannerService } from './components/banner/banner.service';
 import { Profile } from './models/profile';
 import { AppService } from './services/app.service';
 import { ProfileService } from './services/profile.service';
@@ -12,10 +14,12 @@ export class AppComponent implements OnInit {
   title = 'plannet-news-app';
   activePage = "home";
   // user: string;
+  banners: BannerItem[] = [];
 
   constructor(
     public appService: AppService,
-    public profileService: ProfileService
+    public profileService: ProfileService,
+    private bannerService: BannerService
   ) { }
 
   ngOnInit() {
@@ -24,5 +28,6 @@ export class AppComponent implements OnInit {
     //     this.user = data.user;
     //   })
     this.profileService.getProfileSubject();
+    this.banners = this.bannerService.getBanners();    
   }
 }
